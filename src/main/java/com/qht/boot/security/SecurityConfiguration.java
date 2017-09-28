@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-@Profile("production")
+//@Profile("production")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter 
 {
 	// Authentication
@@ -22,21 +22,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 					.roles("USER","ADMIN");
 	}
 	
-	// Authorization
-	@Override
-	public void configure(HttpSecurity http) throws Exception
-	{
-		http.antMatcher("/**").authorizeRequests()
-					.anyRequest().hasRole("USER")
-					
-					.and()
-					
-					.formLogin().loginPage("/login.jsp")
-								.failureUrl("/login.jsp?error=1")
-								.loginProcessingUrl("/login")
-								.permitAll()
-								.and()
-								.logout()
-								.logoutSuccessUrl("/website/vehicles/list.html");
-	}
+//	// Authorization
+//	@Override
+//	public void configure(HttpSecurity http) throws Exception
+//	{
+//		http.antMatcher("/**").authorizeRequests()
+//					.anyRequest().hasRole("USER")
+//					
+//					.and()
+//					
+//					.formLogin().loginPage("/login.jsp")
+//								.failureUrl("/login.jsp?error=1")
+//								.loginProcessingUrl("/login")
+//								.permitAll()
+//								.and()
+//								.logout()
+//								.logoutSuccessUrl("/website/vehicles/list.html");
+//	}
 }
